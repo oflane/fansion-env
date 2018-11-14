@@ -1,0 +1,27 @@
+{
+  "name": "fansion-env",
+  "version": "1.0.0",
+  "description": "A Vue.js project，支持fansion应用模块的开发环境",
+  "author": "yaboocn <yaboocn@qq.com>",
+  "main": "main.js",
+  "publishConfig": {
+    "registry": "http://172.20.26.86:8081/repository/hrcloud/"
+  },
+  "files": [
+    "main.js",
+    "home.vue",
+    "app.vue",
+    "reset.css",
+    "index.html"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

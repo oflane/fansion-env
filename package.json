@@ -10,6 +10,7 @@
   "files": [
     "main.js",
     "home.vue",
+    "navigator.vue",
     "app.vue",
     "reset.css",
     "index.html"

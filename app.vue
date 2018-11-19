@@ -6,7 +6,7 @@
 <template>
   <div id="fansionApp" class="clearfix">
     <dialogs/>
-    <div>
+    <navigator ref="navigator">
       <transition name="router-fade" mode="out-in">
         <keep-alive>
           <router-view class="main-content" v-if="$route.meta.keepAlive"></router-view>
@@ -15,12 +15,14 @@
       <transition name="router-fade" mode="out-in">
         <router-view class="main-content" v-if="!$route.meta.keepAlive"></router-view>
       </transition>
-    </div>
+    </navigator>
   </div>
 </template>
 
 <script>
   import fase from 'fansion-base'
+  import navigator from './navigator'
+
   const dialogs = fase.dialogSet
 
   export default {

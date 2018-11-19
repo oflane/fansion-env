@@ -15,25 +15,30 @@ import './reset.css'
 import home from './home'
 const comp = require(process.env.entry)
 if (!window.$restContext) {
-  window.$restContext = process.env.contextPath || '/oflane'
+  window.$restContext = process.env.contextPath
 }
-
+if (!window.$routeLoader) {
+  window.$routeLoader = process.env.routeLoader
+}
 Vue.use(ElementUI)
 Vue.use(fac)
 Vue.use(fanui)
-Vue.use(comp)
+Vue.use(fase.mod.module(comp))
 Vue.config.productionTip = false
+// 动态路由加载url
+const routeLoader = window.$routeLoader ? fase.rest.getJson(window.$routeLoader).then(res => Array.isArray(res) ? res.map(v => '$' + v) : []) : null
 window.vue = Vue
 fase.init({
   pages: {
-    pages: {
+    pageComps: {
       '/index': home
     }
   },
   routes: [
     '/->!/index',
     '/index'
-  ]
+  ],
+  routeLoader
 })
 /* eslint-disable no-new */
 new Vue({

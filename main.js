@@ -24,6 +24,7 @@ Vue.use(ElementUI)
 Vue.use(fac)
 Vue.use(fanui)
 Vue.use(fase.mod.module(comp))
+
 Vue.config.productionTip = false
 // 动态路由加载url
 const routeLoader = window.$routeLoader ? fase.rest.getJson(window.$routeLoader).then(res => Array.isArray(res) ? res.map(v => '$' + v) : []) : null
@@ -41,10 +42,13 @@ fase.init({
   routeLoader
 })
 /* eslint-disable no-new */
-new Vue({
+let root = new Vue({
   el: '#app',
   router: fase.route.getRouter(),
   template: '<app/>',
   components: { app },
   render: h => h(app)
+})
+fase.util.setShowMessage(msg => {
+  root.$message(msg)
 })

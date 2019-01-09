@@ -49,6 +49,6 @@ let root = new Vue({
   components: { app },
   render: h => h(app)
 })
-fase.util.setShowMessage(msg => {
-  root.$message(msg)
+fase.util.setMessageComp(msg => {
+  root.$msg(msg)
 })

@@ -27,7 +27,7 @@ Vue.use(fase.mod.module(comp))
 
 Vue.config.productionTip = false
 // 动态路由加载url
-const routeLoader = window.$routeLoader ? fase.rest.getJson(window.$routeLoader).then(res => Array.isArray(res) ? res.map(v => '$' + v) : []) : null
+const routeLoader = window.$routeLoader || '/fac/routes'
 window.vue = Vue
 fase.init({
   pages: {
@@ -35,11 +35,13 @@ fase.init({
       '/index': home
     }
   },
-  routes: [
-    '/->!/index',
-    '/index'
-  ],
-  routeLoader
+  router: {
+    routes: [
+      '/->!/index',
+      '/index'
+    ],
+    routeLoader
+  }
 })
 /* eslint-disable no-new */
 let root = new Vue({
@@ -50,5 +52,5 @@ let root = new Vue({
   render: h => h(app)
 })
 fase.util.setMessageComp(msg => {
-  root.$msg(msg)
+  root.$message(msg)
 })

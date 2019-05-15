@@ -25,7 +25,12 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "devDependencies": {
-    "vue-router": "^3.0.1"
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "element-ui": "^2.4.6",
+    "fansion-base": "../fansion-base",
+    "fansion-fac": "../fansion-fac",
+    "fansion-ui": "../fansion-ui"
   }
 }

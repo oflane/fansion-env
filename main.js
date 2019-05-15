@@ -13,6 +13,7 @@ import fanui from 'fansion-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './reset.css'
 import home from './home'
+import VueRouter from 'vue-router'
 const comp = require(process.env.entry)
 if (!window.$restContext) {
   window.$restContext = process.env.contextPath
@@ -24,6 +25,7 @@ Vue.use(ElementUI)
 Vue.use(fac)
 Vue.use(fanui)
 Vue.use(fase.mod.module(comp))
+Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 // 动态路由加载url
@@ -54,3 +56,4 @@ let root = new Vue({
 fase.util.setMessageComp(msg => {
   root.$message(msg)
 })
+

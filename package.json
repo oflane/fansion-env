@@ -23,12 +23,12 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not ie <= 9"
   ],
   "dependencies": {
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.1",
-    "element-ui": "^2.4.6",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "element-ui": "^2.13.1",
     "fansion-base": "../fansion-base",
     "fansion-fac": "../fansion-fac",
     "fansion-ui": "../fansion-ui"

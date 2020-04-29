@@ -29,8 +29,8 @@
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "element-ui": "^2.13.1",
-    "fansion-base": "../fansion-base",
-    "fansion-fac": "../fansion-fac",
-    "fansion-ui": "../fansion-ui"
+    "fansion-base": "^1.0.0",
+    "fansion-fac": "^1.0.0",
+    "fansion-ui": "^1.0.0"
   }
 }

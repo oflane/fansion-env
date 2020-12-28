@@ -56,4 +56,5 @@ let root = new Vue({
 fase.util.setMessageComp(msg => {
   root.$message(msg)
 })
+fase.util.clearInstallCache()
 

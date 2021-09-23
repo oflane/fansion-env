@@ -21,6 +21,9 @@ if (!window.$restContext) {
 if (!window.$routeLoader) {
   window.$routeLoader = process.env.routeLoader
 }
+if (!window.$urlsLoader) {
+  window.$urlsLoader = process.env.urlsLoader
+}
 Vue.use(ElementUI)
 Vue.use(fac)
 Vue.use(fanui)
@@ -30,6 +33,7 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 // 动态路由加载url
 const routeLoader = window.$routeLoader || '/fac/routes'
+const urlsLoader = window.$urlsLoader
 window.vue = Vue
 fase.init({
   pages: {
@@ -43,10 +47,13 @@ fase.init({
       '/index'
     ],
     routeLoader
+  },
+  urls: {
+    urlsLoader
   }
 })
 /* eslint-disable no-new */
-let root = new Vue({
+const root = new Vue({
   el: '#app',
   router: fase.route.getRouter(),
   template: '<app/>',
@@ -56,5 +63,5 @@ let root = new Vue({
 fase.util.setMessageComp(msg => {
   root.$message(msg)
 })
-fase.util.clearInstallCache()
+fase.plugin.clearInstallCache()
 

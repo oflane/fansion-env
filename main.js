@@ -35,33 +35,38 @@ Vue.config.productionTip = false
 const routeLoader = window.$routeLoader || '/fac/routes'
 const urlsLoader = window.$urlsLoader
 window.vue = Vue
-fase.init({
-  pages: {
-    pageComps: {
-      '/index': home
+Promise.all([fase.rest.gson(routeLoader), fase.rest.gson(urlsLoader)]).then(reses =>{
+  fase.init({
+    pages: {
+      pageComps: {
+        '/index': home
+      }
+    },
+    router: {
+      routes: [
+        '/->!/index',
+        '/index',
+        ... reses[0]
+      ],
+      routeLoader
+    },
+    urls: {
+      urls: reses[1]
     }
-  },
-  router: {
-    routes: [
-      '/->!/index',
-      '/index'
-    ],
-    routeLoader
-  },
-  urls: {
-    urlsLoader
-  }
+  })
+  /* eslint-disable no-new */
+  const root = new Vue({
+    el: '#app',
+    router: fase.route.getRouter(),
+    store: fase.store.getStore(),
+    template: '<app/>',
+    components: { app },
+    render: h => h(app)
+  })
+  fase.util.setMessageComp(msg => {
+    root.$message(msg)
+  })
+  fase.plugin.clearInstallCache()
 })
-/* eslint-disable no-new */
-const root = new Vue({
-  el: '#app',
-  router: fase.route.getRouter(),
-  template: '<app/>',
-  components: { app },
-  render: h => h(app)
-})
-fase.util.setMessageComp(msg => {
-  root.$message(msg)
-})
-fase.plugin.clearInstallCache()
+
 

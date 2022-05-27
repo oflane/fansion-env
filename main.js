@@ -10,8 +10,8 @@ import fase from 'fansion-base'
 import ElementUI from 'element-ui'
 import fac from 'fansion-fac'
 import fanui from 'fansion-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import './reset.css'
+import './app.less'
 import home from './home'
 import VueRouter from 'vue-router'
 const comp = require(process.env.entry)
@@ -35,6 +35,11 @@ Vue.config.productionTip = false
 const routeLoader = window.$routeLoader || '/fac/routes'
 const urlsLoader = window.$urlsLoader
 window.vue = Vue
+fase.init({
+  rest: {
+    baseURL: window.$restContext
+  }
+})
 Promise.all([fase.rest.gson(routeLoader), fase.rest.gson(urlsLoader)]).then(reses =>{
   fase.init({
     pages: {

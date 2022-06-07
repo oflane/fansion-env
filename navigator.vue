@@ -148,9 +148,7 @@
         font-weight: 400;
       }
       i{
-        font-size:1.2em;
-        font-weight: 400;
-        vertical-align: text-bottom;
+        font-size:1em;
       }
     }
   }

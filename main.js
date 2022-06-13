@@ -32,7 +32,7 @@ Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 // 动态路由加载url
-const routeLoader = window.$routeLoader || '/fac/routes'
+const routeLoader = window.$routeLoader
 const urlsLoader = window.$urlsLoader
 window.vue = Vue
 fase.init({
@@ -40,7 +40,8 @@ fase.init({
     baseURL: window.$restContext
   }
 })
-Promise.all([fase.rest.gson(routeLoader), fase.rest.gson(urlsLoader)]).then(reses =>{
+const loaders = [routeLoader ? fase.rest.gson(routeLoader) : fase.util.simulatePromise([]), urlsLoader ? fase.rest.gson(urlsLoader) : fase.util.simulatePromise([])]
+Promise.all(loaders).then(reses =>{
   fase.init({
     pages: {
       pageComps: {

@@ -8,7 +8,8 @@
       <h2>{{item.title}}</h2>
       <el-col :xs="8" :sm="6" :md="6" :lg="6" v-for="col in item.cols" :key="col.name">
         <router-link :to="col.url" class="unit">
-          <img :src="col.img">
+          <img :src="col.img" v-if="col.img !== null">
+          <i :class="col.icon" v-if="col.icon !== null"></i>
         </router-link>
         <h4>{{col.name}}</h4>
       </el-col>
@@ -107,6 +108,9 @@
       -o-transition: all 0.7s linear 0s;
       /* Opera */
       transition: all 0.7s linear 0s;
+    }
+    .unit i{
+      font-size: 20px;
     }
     h4 {
       margin-top: 0;

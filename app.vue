@@ -7,14 +7,16 @@
   <div id="fansionApp" class="clearfix">
     <dialogs/>
     <navigator ref="navigator">
-      <transition name="router-fade" mode="out-in">
-        <keep-alive>
-          <router-view class="main-content" v-if="$route.meta.keepAlive"></router-view>
-        </keep-alive>
-      </transition>
-      <transition name="router-fade" mode="out-in">
-        <router-view class="main-content" v-if="!$route.meta.keepAlive"></router-view>
-      </transition>
+      <div class="main-content">
+        <transition name="router-fade" mode="out-in">
+          <keep-alive>
+            <router-view v-if="$route.meta.keepAlive"></router-view>
+          </keep-alive>
+        </transition>
+        <transition name="router-fade" mode="out-in">
+          <router-view  v-if="!$route.meta.keepAlive"></router-view>
+        </transition>
+      </div>
     </navigator>
   </div>
 </template>

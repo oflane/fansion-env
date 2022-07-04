@@ -22,8 +22,7 @@
   "dependencies": {
     "element-ui": "^2.15.2",
     "fansion-base": "^1.0.0",
-    "fansion-fac": "^1.0.0",
-    "fansion-ui": "^1.0.0"
+    "fansion-fac": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
